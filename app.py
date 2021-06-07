@@ -68,19 +68,19 @@ app.layout = html.Div([
         ]),
         html.Div([
             html.Img(src="https://logos-marcas.com/wp-content/uploads/2020/04/Twitter-Logo.png",
-                     style={"width": "100px"}),
+                     style={"width": "50px"}),
             html.H2(
                 id='twitter-visit',
             )
         ]),
         html.Div([
             html.Img(src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-original-577x577/s3/022015/twitch.png",
-                     style={"width": "100px"}),
+                     style={"width": "50px"}),
             html.H2(
                 id='twitch-visit',
             )
         ]),        
-    ], style={"columnCount": 6, 'textAlign': "center"}),
+    ], style={"columnCount": 5, 'textAlign': "center"}),
     html.H3('Total Visits by Month', style={"textAlign": "center"}),
     dcc.Graph(
         id='total-visit-line'
