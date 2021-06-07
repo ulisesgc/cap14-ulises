@@ -68,7 +68,7 @@ app.layout = html.Div([
         ]),
         html.Div([
             html.Img(src="https://logos-marcas.com/wp-content/uploads/2020/04/Twitter-Logo.png",
-                     style={"width": "50px"}),
+                     style={"width": "100px"}),
             html.H2(
                 id='twitter-visit',
             )
