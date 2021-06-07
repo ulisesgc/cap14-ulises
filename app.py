@@ -43,7 +43,7 @@ app.layout = html.Div([
             value=[device for device in df.device.unique()],
             labelStyle={'display': 'inline-block'}
         )
-    ], style={"columnCount": 3, 'textAlign': "center", "margin-top": "24px", "margin-bottom": "48px"}),
+    ], style={"columnCount": 5, 'textAlign': "center", "margin-top": "24px", "margin-bottom": "48px"}),
     html.Div([
         html.Div([
             html.Img(src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
