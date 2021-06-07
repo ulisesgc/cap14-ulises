@@ -73,7 +73,14 @@ app.layout = html.Div([
                 id='twitter-visit',
             )
         ]),
-    ], style={"columnCount": 4, 'textAlign': "center"}),
+        html.Div([
+            html.Img(src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-original-577x577/s3/022015/twitch.png",
+                     style={"width": "100px"}),
+            html.H2(
+                id='twitch-visit',
+            )
+        ]),        
+    ], style={"columnCount": 5, 'textAlign': "center"}),
     html.H3('Total Visits by Month', style={"textAlign": "center"}),
     dcc.Graph(
         id='total-visit-line'
@@ -100,7 +107,7 @@ app.layout = html.Div([
     Output('facebook-visit', 'children'),
     Output('instagram-visit', 'children'),
     Output('twitter-visit', 'children'),
-    Output('twitch-visit','children'),
+    Output('twitch-visit', 'children'),
     Output('total-visit-line', 'figure'),
     Output('total-visit-social-networks-line', 'figure'),
     Output('world-map', 'figure'),
