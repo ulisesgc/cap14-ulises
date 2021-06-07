@@ -18,7 +18,7 @@ df = pd.read_parquet('/tmp/social_network.parquet')
 
 # LAYOUT
 app.layout = html.Div([
-    html.H1('Dashboard Social Networks', style={
+    html.H1('Ulises Garcia - Dashboard Social Networks', style={
             "text-align": "center", "margin-top": "24px", "margin-bottom": "48px"}),
     html.Div([
         html.Label('Datetime Range'),
@@ -100,6 +100,7 @@ app.layout = html.Div([
     Output('facebook-visit', 'children'),
     Output('instagram-visit', 'children'),
     Output('twitter-visit', 'children'),
+    Output('twitch-visit','children'),
     Output('total-visit-line', 'figure'),
     Output('total-visit-social-networks-line', 'figure'),
     Output('world-map', 'figure'),
@@ -139,6 +140,15 @@ def update_figures(start_date_selected, end_date_selected, social_networks_selec
     twitter_visit = (
         df
         .loc[(df.social_network == 'twitter') &
+             (df.social_network.isin(social_networks_selected)) &
+             (df.device.isin(devices_selected)) &
+             (df.datetime >= start_date_selected) &
+             (df.datetime <= end_date_selected)]
+    ).shape[0]
+
+    twitch_visit = (
+        df
+        .loc[(df.social_network == 'twitch') &
              (df.social_network.isin(social_networks_selected)) &
              (df.device.isin(devices_selected)) &
              (df.datetime >= start_date_selected) &
@@ -238,7 +248,7 @@ def update_figures(start_date_selected, end_date_selected, social_networks_selec
         }
     )
 
-    return total_visit, facebook_visit, instagram_visit, twitter_visit, total_visit_fig, total_visit_social_network_fig, world_map_fig, devices_pie_fig
+    return total_visit, facebook_visit, instagram_visit, twitter_visit, twitch_visit, total_visit_fig, total_visit_social_network_fig, world_map_fig, devices_pie_fig
 
 
 if __name__ == '__main__':
